@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="与 Astra 协作写作时，怎样明确目标和取舍原则，保留自主判断空间，并通过长期约定与不同视角的审查推进修改。">
+  <meta property="og:title" content="与 Astra 协作：目标、约定与审查">
+  <meta property="og:description" content="把希望达到的效果、质量标准和必要边界讲清楚，让 Astra 判断怎样完成当前的写作任务。">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Iridium">
+  <link rel="canonical" href="https://veritas-arch.github.io/iridium/astra.html">
+  <meta property="og:url" content="https://veritas-arch.github.io/iridium/astra.html">
+  <title>与 Astra 协作 · Iridium</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="essay-page">
+  <a class="skip-link" href="#goals">跳转到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span id="progress"></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="index.html"><span class="brand-mark" aria-hidden="true">Ir<span>77</span></span>Iridium</a>
+    <nav aria-label="主导航"><a href="index.html">写作原则</a><a href="case.html">拓展案例</a><a href="astra.html" aria-current="page">与 Astra 协作</a></nav>
+    <button class="print-button" id="print-page" type="button" hidden>打印 / 存为 PDF</button>
+  </header>
+  <main id="top">
+    <header class="article-head wrap">
+      <h1>与 Astra 协作<br><span>目标、约定与审查</span></h1>
+      <p class="standfirst">从生成方法说明到讨论结构、审读和修改，AI 可以参与写作中的许多判断。怎样交代任务，决定了这些判断有多少空间。以 Astra 为例，作者可以把希望达到的效果、质量标准和必要边界讲清楚，让模型据此选择推进方式，再通过稿件本身检验这些选择。</p>
+      <p class="article-meta"><time datetime="2026-11-04">2026 年 11 月 4 日</time></p>
+    </header>
+    <div class="reading-layout wrap">
+      <aside class="toc">
+        <nav aria-label="协作原则目录">
+          <p class="toc-label">协作原则</p>
+          <a href="#goals"><span>01</span>明确希望达到的效果</a>
+          <a href="#judgment"><span>02</span>用原则说明怎样取舍</a>
+          <a href="#completion"><span>03</span>自主范围与完成条件</a>
+          <a href="#instructions"><span>04</span>保存长期约定</a>
+          <a href="#reviews"><span>05</span>组织不同视角的审查</a>
+        </nav>
+        <a class="toc-bottom" href="case.html">← 阅读写作案例</a>
+      </aside>
+      <article>
+        <section class="article-section introduction" id="goals" aria-labelledby="goals-title">
+          <h2 id="goals-title">先说清希望达到什么效果</h2>
+          <p>前面的案例把一轮写作拆成了几个步骤，便于说明内容、逻辑与表达如何逐渐成形。实际协作时，每一步需要多少指导，可以随任务变化。作者已经知道稿件有哪些问题时，可以直接指定修改；尚不清楚怎样组织时，也可以说明写作目的，让 Astra 先提出方案。提纲、段落顺序和详略安排，都可以成为模型参与判断的对象。</p>
+          <p>使用 Astra 时，提示的重心可以放在最终效果上。对于一节方法介绍，目标可以是让熟悉 RNN、但不了解本任务的读者理解输入输出的关系，并获得复现所需的条件。有了这样的要求，模型便有依据判断哪些概念需要解释、哪些细节可以省略，以及怎样安排顺序。具体分成几段、在哪里补一句过渡，可以在阅读材料之后决定。</p>
+          <p>目标明确到什么程度，取决于已有背景。若原文、读者和修改范围已经清楚，一句简短要求就可以作为本轮修改的起点。作者无须在每次对话中重新展开全部写作原则。</p>
+          <aside class="prompt-example" aria-labelledby="logic-example-title">
+            <p class="example-label" id="logic-example-title">简短示例 · 改善行文</p>
+            <blockquote><p>请修改这段文字，保持原意，要求逻辑通顺。</p></blockquote>
+          </aside>
+          <p>“逻辑通顺”指向了信息之间的关系，具体改法可以由模型判断。作者可以对照改稿，检查信息顺序、指代和衔接是否更清楚，再补充仍未解决的问题。文字读起来顺畅之后，论证所需的前提与证据仍需核对。</p>
+          <aside class="prompt-example" aria-labelledby="voice-example-title">
+            <p class="example-label" id="voice-example-title">需要进一步说明的要求</p>
+            <blockquote><p>请修改这段文字，保持原意，去除 AI 味。</p></blockquote>
+          </aside>
+          <p>“去除 AI 味”没有说明具体希望改善什么。它可能指空泛评价、机械分点或反复总结，也可能被理解成增加口语表达。缺少已有共识时，可以指出原文中不合适的表达，例如“删去空泛评价，直接说明理由”，再让模型判断怎样修改。</p>
+          <p>如果前文已经讨论清楚这些问题，“去除 AI 味”也可以作为已有要求的简称。提示词可以很短，但需要结合原文和此前的讨论，让模型知道希望文字达到什么效果。修改后，再据此判断问题是否得到解决。</p>
+        </section>
+
+        <section class="article-section" id="judgment" aria-labelledby="judgment-title">
+          <h2 id="judgment-title">用原则说明怎样取舍</h2>
+          <p>当任务变得复杂，“简洁”“完整”“易读”等要求可能指向不同的改法。删去一个条件，句子会更短，结论却可能被扩大；补入一段背景，局部更容易理解，全文的重点却可能受到干扰。模型需要知道，在当前文章里应当根据什么作出取舍。</p>
+          <p>原则应当说明理由和适用条件。例如，方法介绍中影响理解与复现的条件需要保留，因为读者要据此判断方法怎样工作；只是重复代码操作、又不影响这些判断的细节，可以压缩。这样的要求能够指导新的删改，不必由作者事先列出每个参数的去留。</p>
+          <p>同样，“让段落自然衔接”可以通过补足推理关系实现。作者若发现两段突然跳转，可以说明读者还不知道前一项结果为什么引出后一项分析，再让 Astra 判断需要补写理由、前移定义，还是调整顺序。反馈给出了尚未达到的效果，也保留了选择改法的空间。</p>
+          <p>对于科研文本，有些过程本身具有实质意义。已经确定的分析条件、必须保持的比较关系，以及保证复现所需的步骤，都应当明确保留。作者也可以规定一种论证顺序，同时说明它为何必要。给模型自主空间，要以这些科学要求已经清楚为前提。</p>
+        </section>
+
+        <section class="article-section" id="completion" aria-labelledby="completion-title">
+          <h2 id="completion-title">说明自主范围与完成条件</h2>
+          <p>目标与取舍原则明确之后，还需要让 Astra 知道这一轮工作应当推进到哪里。比较几种主线，交付的是可供讨论的方案；按已确认的结构修改稿件，交付的则应当是完成修改并经过相应检查的文字。两类任务需要的结束位置不同。</p>
+          <p>对于已经授权的修改，可以说明模型能够自主处理重复内容、句序、过渡和必要的前后核对。遇到会改变研究主张的选择，或者材料之间存在无法判断的冲突时，再提出依据和待决定的问题。这使作者的参与集中在需要科学判断的地方，常规修改则能够继续完成。</p>
+          <p>在使用 Astra 的过程中，若模型停在第一版方案、反复询问已经确定的事项，可以检查任务要求和长期指令是否仍写着“每一步先确认”或“提出建议后等待”。这些要求可能适用于早期讨论，进入执行阶段后则需要更新。明确“完成这一节的修改，检查相关术语、数字和衔接，并修复本轮修改引入的问题”，有助于说明作者期待的交付范围。</p>
+          <p>完成与否最终要回到稿件判断。读者是否已经理解关键关系，原来缺失的条件是否补齐，删改后是否保持了科学含义，都比执行了多少步骤更能说明效果。若问题仍在，下一轮反馈应当指出具体差距；若现有文字已经达到要求，也可以结束这一轮修改。</p>
+        </section>
+
+        <section class="article-section" id="instructions" aria-labelledby="instructions-title">
+          <h2 id="instructions-title">把长期约定放到合适的位置</h2>
+          <p>反复参与同一项目时，一些要求会持续适用，例如怎样处理不确定的材料、沿用哪些术语，以及哪些修改需要作者判断。把这些约定保存下来，可以减少重复交代，让新的任务也能沿用已经形成的合作方式。</p>
+          <p>在 Codex 中使用 Astra 时，可以通过 <code>AGENTS.md</code> 保存这类指导。全局文件提供跨项目约定，项目和子目录中的文件补充具体要求，加载范围取决于工作目录与工具规则。这里的“全局”表示适用范围，不等同于系统指令的权限层级。</p>
+          <div class="table-wrap">
+            <table class="guidance-table">
+              <caption>写作约定可以怎样分配</caption>
+              <thead><tr><th scope="col">位置</th><th scope="col">适合保存的内容</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">全局 <code>AGENTS.md</code></th><td>跨项目的合作原则，例如常规修改可以自主完成，实质性分歧需要说明依据。</td></tr>
+                <tr><th scope="row">项目根目录</th><td>材料入口、结果依据、通用术语，以及修改相应内容时需要核对什么。</td></tr>
+                <tr><th scope="row">论文所在目录</th><td>该稿件的目标读者、符号约定、篇幅要求和编译方式。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>本轮具体目标可以留在当前消息中；只在某类任务中需要的方法，可以整理成按需使用的 Skill。例如，语言审读适合检查表达，方法描述则需要同时核对相关实现。写明各项指导何时适用，能够帮助模型在需要时使用它们。</p>
+          <p>长期约定也应当保留判断空间。“修改方法描述时核对相应实现”，已经说明了要求与用途；一次局部措辞调整需要读哪些文件，可以由模型根据影响范围决定。随着稿件和合作方式变化，旧规则也需要重新检查，尤其是已经不再需要的确认步骤或相互冲突的要求。</p>
+          <p>对某项研究结论的判断，则应当持续受证据约束。即使作者与模型已经讨论过某种解释，也需要允许新材料使它改变。适合长期保存的是核对依据和处理分歧的原则。</p>
+        </section>
+
+        <section class="article-section" id="reviews" aria-labelledby="reviews-title">
+          <h2 id="reviews-title">组织不同视角的审查</h2>
+          <p>有了可供阅读的稿件，作者可以借助不同视角检验上述目标是否实现。前面的案例采用多个会话，分别检查内容、逻辑和表达。这里还可以区分两种组织方式，它们由不同的参与者承担协调工作。</p>
+          <p>人工开启多个会话时，作者分别提供稿件、说明任务，再比较和汇总意见。调用子智能体时，主智能体负责分派任务、收集结果，并在主会话中综合处理。前者便于作者直接控制每次审查的材料与角度；后者适合把边界清楚的检查交给模型协调，例如分别核对方法描述与代码、检查术语一致性、审读论证顺序。</p>
+          <p>审查是否具有不同的视角，还取决于各方收到什么。子智能体可以有各自的上下文，但是否继承主会话历史，要看具体工具和调用方式。人工新开会话也可能使用同样的模型和长期指令。若希望了解读者能否从稿件中理解论证，可以先提供稿件与读者背景；核对事实的审查则需要相关代码和结果。作者已经形成的修改结论，可以留到比较意见时再引入。</p>
+          <p>在具体安排上，可以让各会话或子智能体审读同一版稿件，先报告问题的位置、理由和建议，再集中决定怎样修改。这样，意见之间有共同的比较对象，也便于核对一项改动是否影响了其他段落。使用共享文件的子智能体时，应当明确各自是提供意见，还是修改指定部分，避免几项修改彼此覆盖。</p>
+          <p>不同审查者之间的分歧值得展开：它们可能对目标读者、段落任务或证据范围作了不同假设。相近意见也需要回到原文核对，尤其要看共同指出的问题是否确实影响理解。意见的数量只能帮助安排复核顺序，采用哪一种改法，仍需说明它给当前稿件带来的收益与代价。</p>
+          <p>审查后的反馈可以直接指向尚未实现的目标，例如“读者仍然无法区分这两种迁移条件”。作者与 Astra 随后可以围绕这一处困难继续讨论和修改；若问题已经解决，就保留现有文字。</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><a href="case.html">← 阅读写作案例</a><a href="#top">返回顶部 ↑</a></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
