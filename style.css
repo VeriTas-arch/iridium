@@ -47,6 +47,7 @@ sub { line-height: 0; }
 .site-header nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: var(--text-small); }
 .site-header nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; white-space: nowrap; }
 .site-header nav a:hover { text-decoration: underline; }
+.site-header nav a[aria-current="page"] { color: var(--accent); font-weight: 600; }
 .print-button { padding: 8px 14px; border-radius: 3px; font-size: var(--text-small); }
 .print-button:hover { background: var(--tint); }
 .article-head { max-width: 912px; padding-top: 74px; padding-bottom: 54px; }
@@ -75,6 +76,7 @@ article p a { color: var(--accent); }
 .brief-example p { font-size: var(--text-note); margin-bottom: 10px; }
 .brief-example .example-label { color: var(--muted); font-size: var(--text-label); margin-bottom: 10px; }
 .brief-example a { color: var(--accent); font-size: var(--text-label); text-decoration: none; }
+.ai-tip strong { color: var(--accent); font-weight: 600; }
 .small-label, .panel-label { display: block; font-size: var(--text-label); line-height: 1.8; letter-spacing: .02em; color: var(--muted); margin-bottom: 12px; }
 .small-print { font-size: var(--text-small) !important; line-height: 1.9; color: var(--muted); }
 .source-note { font-size: var(--text-label); color: var(--accent); text-decoration: none; line-height: 1.9; overflow-wrap: anywhere; }

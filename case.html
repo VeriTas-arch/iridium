@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f7f3">
   <meta name="description" content="先介绍 AI 协作写作的完整过程，再以附录和正文为例，展开内容生成与取舍、共同设计逻辑、多会话审查、修改和排版。">
-  <meta property="og:title" content="从代码到论文：完整案例">
+  <meta property="og:title" content="从代码到论文：一次写作实践">
   <meta property="og:description" content="从整体流程到具体步骤：借助 AI 生成方法说明、设计逻辑、起草完整草稿，再通过多角度审查继续修改。">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Iridium">
@@ -19,28 +19,26 @@
 <body class="case-page">
 <a class="skip-link" href="#workflow">跳转到正文</a>
 <div class="reading-progress" aria-hidden="true"><span id="progress"></span></div>
-<header class="site-header"><a class="wordmark" href="index.html"><span class="brand-mark" aria-hidden="true">Ir<span>77</span></span>Iridium</a><nav aria-label="主导航"><a href="index.html">写作原则</a><a href="#prompts">指令示例</a><a href="astra.html">与 Astra 协作</a></nav><button class="print-button" id="print-page" type="button" hidden>打印 / 存为 PDF</button></header>
+<header class="site-header"><a class="wordmark" href="index.html"><span class="brand-mark" aria-hidden="true">Ir<span>77</span></span>Iridium</a><nav aria-label="主导航"><a href="index.html">写作原则</a><a href="case.html" aria-current="page">写作案例</a><a href="astra.html">与 Astra 协作</a></nav><button class="print-button" id="print-page" type="button" hidden>打印 / 存为 PDF</button></header>
 <main id="top">
-<header class="article-head wrap"><h1>从代码到论文<br><span>一次写作实践</span></h1><p class="standfirst">代码和结果整理好之后，作者可以借助 AI 逐步确定写什么、怎样组织，以及如何修改。本页先说明一轮协作的整体过程，再以附录和正文写作为例，展开各个环节中的做法与判断。</p><p class="article-meta"><time datetime="2026-11-04">2026 年 11 月 4 日</time></p></header>
-<div class="reading-layout wrap"><aside class="toc"><nav aria-label="案例目录"><p class="toc-label">案例目录</p><a href="#workflow"><span>01</span>一轮协作如何推进</a><a href="#case"><span>02</span>附录写作的六个步骤</a><a href="#main-text"><span>03</span>进入正文后的调整</a><a href="#prompts"><span>04</span>指令示例</a><a href="#sources"><span>05</span>材料来源</a></nav><a class="toc-bottom" href="index.html">← 返回主文</a></aside><article>
+<header class="article-head wrap"><h1>从代码到论文<br><span>一次写作实践</span></h1><p class="standfirst">代码和结果整理好之后，怎样借助 AI 决定写什么、怎样组织、如何修改？本页先概述一轮协作的过程，再以一份真实研究的附录和正文为例，展开每一步的做法与判断。</p><p class="article-meta"><time datetime="2026-11-04">2026 年 11 月 4 日</time></p></header>
+<div class="reading-layout wrap"><aside class="toc"><nav aria-label="案例目录"><p class="toc-label">案例目录</p><a href="#workflow"><span>01</span>一轮协作怎样推进</a><a href="#case"><span>02</span>以附录为例：六个步骤</a><a href="#main-text"><span>03</span>进入正文后的调整</a><a href="#prompts"><span>04</span>四条起始指令</a><a href="#sources"><span>05</span>案例材料与版本</a></nav><a class="toc-bottom" href="index.html">← 写作原则</a></aside><article>
         <section class="article-section introduction" id="workflow" aria-labelledby="workflow-title">
-          <h2 id="workflow-title">一轮写作怎样与 AI 共同推进</h2>
-          <p>写作开始时，作者往往已经整理好了代码和结果，对研究做了什么也有整体认识。但哪些内容需要写入论文，各部分应当怎样衔接，仍然需要在实际起草中逐步确定。借助 AI，可以先把尚未组织好的内容写出来，再围绕已有文字讨论取舍、结构和表达，使这些选择有具体的对象。</p>
-          <p>这里从附录开始。先圈定需要交代的方法和实验内容，让 AI 根据代码、结果与图表生成参数和方法说明。早期文字可能写得过细，也可能把程序中的操作逐一翻译出来。作者可以在这版说明上核对事实，删去不影响理解和复现的细节，补上尚未说明的条件，逐渐确定附录需要保留的内容。这一步生成的文字，供后续选择、删减和重新组织。</p>
-          <p>保留哪些内容基本明确之后，再讨论它们怎样组成文章。这包括如何分段、段落先后顺序，以及前后两段如何联系。方案可以先由 AI 提出，作者据此调整；也可以由作者提出，再让 AI 比较其中的得失并协助完善。两种方式都允许方案在讨论中改变。内容与逻辑确定到可以试写的程度，就可以要求 AI 生成一版完整附录，通读后再判断原先的安排是否合适。</p>
-          <p>有了完整草稿，修改便能够同时考察局部表达与整体推进。作者可以开启几个不同会话，分别从内容是否准确、逻辑是否连贯、表达是否冗余等角度审查同一版稿件，再比较意见并集中修改。这种起草与审查相互往返的做法，使草稿在不同视角下接受检验。删减、补写、调整段落和改善过渡，都可以在这一过程中进行；若审查发现内容取舍或结构仍有问题，也可以回到前面的步骤。</p>
-          <p>随着大段删改逐渐减少，文字趋于稳定，再集中处理图表、公式、交叉引用和版面。排版后的通读仍可能发现新的衔接问题，必要时继续修订。整个过程的重心，会从确定内容转向组织论述，再转向细节的处理。进入正文写作时，可以沿用这样的协作方式，同时把更多讨论放在研究问题、结果之间的联系和主要回答上。</p>
+          <h2 id="workflow-title">一轮协作怎样推进</h2>
+          <p>写作开始时，代码和结果通常已经整理好，作者对研究做了什么也心中有数。还没定下来的，是哪些内容写进论文、各部分怎样衔接。借助 AI，可以先把这些内容写出来，再围绕已有文字讨论取舍、结构和表达，让每个选择都有具体的对象。</p>
+          <p>本页从附录开始，一轮协作大致分为六步。先让 AI 根据代码、结果与图表生成参数和方法说明，作者核对事实，删去不影响理解和复现的细节，补上遗漏的条件，确定保留什么。再与 AI 讨论分段和顺序：方案可以由 AI 提出、作者调整，也可以由作者提出、AI 比较得失。内容与逻辑明确到可以试写时，生成一版完整草稿，通读后判断原先的安排是否合适。然后开启几个会话，从内容、逻辑、表达等角度审查同一版稿件，比较意见后集中修改。文字稳定后，最后处理图表、公式、交叉引用和版面。</p>
+          <p>这些步骤并非单向推进。审查若发现取舍或结构仍有问题，就回到前面的步骤；排版后的通读也可能暴露新的衔接问题。整个过程的重心，从确定内容转向组织论述，再转向细节。进入正文后，协作方式基本不变，讨论会更多地落在研究问题、结果之间的联系和主要回答上。</p>
           <ol class="case-route" aria-label="附录写作的六个步骤"><li><a href="#case-material">准备材料</a></li><li><a href="#case-select">生成与取舍</a></li><li><a href="#case-outline">设计逻辑</a></li><li><a href="#case-draft">完整初稿</a></li><li><a href="#case-edit">审查修改</a></li><li><a href="#case-layout">排版定稿</a></li></ol>
         </section>
 
         <section class="article-section" id="case" aria-labelledby="case-title">
-          <h2 id="case-title">以附录为例，展开这套过程</h2>
-          <p class="section-lead">下面把这套过程用于一段输入输出方法的写作。先生成并筛选方法说明，再安排段落，形成完整小节，最后通过审查继续修改。具体材料使每一步的取舍都有可以对照的对象。</p>
+          <h2 id="case-title">以附录为例：六个步骤</h2>
+          <p class="section-lead">下面把这套过程用于一段输入输出方法的写作。具体的材料让每一步的取舍都有可以对照的对象。</p>
           <div class="case-context"><span class="tiny-tag">真实材料 · 教学重构</span><p>这个任务考察循环神经网络（RNN）怎样短时记住项目及其次序。每次从六种刺激中选择三个不同项目，依次呈现；经过一段等待时间后，模型按原顺序报告它们。等待的这段时间称为保持期。</p><p class="small-print">材料来自 <code>schema-iclr2027</code> 的稿件与对应代码。指令、初稿和修订示范为教学重构；真实稿件节选另行标注。</p></div>
 
           <div class="case-step" id="case-material"><div class="step-heading"><span>01</span><h3>从整理好的代码与结果出发</h3></div>
-            <p>开始写某一部分时，可以从已经整理好的材料中取出相关代码、结果和图表，并说明这一部分需要完成什么。对于输入输出小节，编码代码给出信号的具体形式，试次说明与输入输出图交代信号何时出现；涉及实验结果时，还需要相应的分析与条件。AI 据此理解当前写作对象，作者也能够随时回到材料核对描述。</p>
-            <p>这里需要让读者理解模型接收什么信号、被要求输出什么，以及两者在一次试次中怎样对应。交给 AI 的任务因而可以限定为整理输入、输出及其条件，先形成可供阅读和取舍的方法说明。</p>
+            <p>开始写某一部分时，从整理好的材料中取出相关代码、结果和图表，并说明这一部分要完成什么。对于输入输出小节，编码代码给出信号的具体形式，试次说明与输入输出图交代信号何时出现。AI 据此理解写作对象，作者也能随时回到材料核对描述。</p>
+            <p>这一节要让读者理解模型接收什么信号、被要求输出什么，以及两者在一次试次中怎样对应。交给 AI 的任务因此可以限定为：整理输入、输出及其条件，先形成一份可供阅读和取舍的方法说明。</p>
             <p>这里用 24 个输入通道共同表示一个刺激，称为群体编码（population coding）。可以把每个通道理解为输入向量中的一个数值。另有一个阶段信号 fixation：它在刺激呈现和保持时为 1，开始回忆时变为 0。</p>
             <details class="code-disclosure"><summary>查看输入编码的核心代码 <span class="summary-meta">7 行节选</span><span class="expand-icon" aria-hidden="true">＋</span></summary><div class="details-body"><pre class="code-block"><code>def gaussian_item(item_index, size=24, sigma2=2.0):
     miu = item_index * math.pi / 3
@@ -53,8 +51,8 @@
           </div>
 
           <div class="case-step" id="case-select"><div class="step-heading"><span>02</span><h3>先生成方法说明，再确定内容</h3></div>
-            <p>材料准备好之后，可以直接让 AI 描述参数和方法，再阅读这些文字，决定附录需要留下什么。此时不必一次解决段落顺序和全文结构，先把方法说清楚，便于检查描述是否正确、哪些内容多余，以及哪里仍需补充。</p>
-            <p>下面重构了一种接近代码的初步说明。它按函数执行顺序写出运算，也保留了类型转换等细节。作者可以与 AI 讨论这些信息对读者的作用，将多步运算整理为输入的数学定义，并删去当前方法介绍不需要的程序操作。这里形成的是随后可用于组织附录的内容。</p>
+            <p>材料准备好之后，直接让 AI 描述参数和方法，再读这些文字，决定附录留下什么。这时不必同时解决段落顺序和全文结构；先把方法说清楚，才便于检查描述是否正确、哪些多余、哪里还缺。</p>
+            <p>下面重构了一种接近代码的初步说明：它按函数的执行顺序写出运算，连类型转换也保留了。作者可以与 AI 讨论这些信息对读者有什么用，把多步运算整理成输入的数学定义，删去方法介绍不需要的程序操作。</p>
             <div class="revision-view" data-tabs>
               <div class="tab-list" role="tablist" aria-label="方法说明的取舍过程"><button type="button" role="tab" id="tab-draft" aria-controls="panel-draft" aria-selected="true">初步说明</button><button type="button" role="tab" id="tab-revised" aria-controls="panel-revised" aria-selected="false" tabindex="-1">取舍后</button><button type="button" role="tab" id="tab-reasons" aria-controls="panel-reasons" aria-selected="false" tabindex="-1">处理理由</button></div>
               <div class="tab-panel" id="panel-draft" role="tabpanel" aria-labelledby="tab-draft" tabindex="0"><p class="panel-label">初步方法说明 · 教学重构</p><p class="english-sample" lang="en">The function <code>gaussian_item</code> maps each item index to a preferred angle. It creates 24 equally spaced channels, subtracts the item angle, and uses the modulo operation to wrap the distance. A Gaussian function with variance 2 is then evaluated and multiplied by 4. The resulting array is converted to float32 and returned as the stimulus input.</p><p class="editor-note">逐步说明了程序怎么执行，但论文读者首先需要知道：刺激用了什么表示，具体如何定义。</p></div>
@@ -62,65 +60,65 @@
               <div class="tab-panel" id="panel-reasons" role="tabpanel" aria-labelledby="tab-reasons" tabindex="0"><p class="panel-label">修订依据</p><ul class="reason-list"><li><strong>合并</strong><span>把多步计算收束成“环形空间上的高斯群体编码”。</span></li><li><strong>保留</strong><span>24 个通道、幅度、宽度和环形边界，仍决定输入形式。</span></li><li><strong>删除</strong><span>函数名、数组返回和类型转换，不占用这段方法篇幅。</span></li><li><strong>核对</strong><span>代码中的 <code>sigma2 = 2</code> 是方差；文字写标准差时应为 √2。</span></li></ul></div>
             </div>
             <noscript><p class="small-print">JavaScript 已关闭，三个版本按顺序显示。</p></noscript>
-            <p>经过这样的处理，可以再看各项信息适合放在哪里。输入形式及其关键条件需要在附录中说明，正文只需保留帮助读者理解模型的内容，程序中的常规操作则可以留在代码里。</p>
+            <p>处理完之后，再看各项信息适合放在哪里：输入形式及其关键条件放在附录，正文只保留帮助读者理解模型的内容，程序中的常规操作留在代码里。</p>
             <div class="table-wrap"><table><caption>同一组材料的三种去处</caption><thead><tr><th scope="col">材料</th><th scope="col">建议放置</th><th scope="col">判断理由</th></tr></thead><tbody><tr><th scope="row">用群体编码表示刺激</th><td><span class="placement main">正文</span></td><td>帮助理解模型接受什么输入。</td></tr><tr><th scope="row">24 个刺激通道、幅度 4、σ = √2、环形边界</th><td><span class="placement appendix">附录</span></td><td>定义输入的具体形式，可集中说明。</td></tr><tr><th scope="row">fixation 何时从 1 变为 0</th><td><span class="placement both">两处，详略不同</span></td><td>影响对回忆启动条件的理解。</td></tr><tr><th scope="row">数组类型、内部变量名、参数校验</th><td><span class="placement code">代码</span></td><td>这段方法描述不依赖这些实现细节。</td></tr></tbody></table></div>
-            <p>表中的取舍依赖当前研究。如果数值精度本身影响实验结果，数组类型也需要作为方法条件保留。</p>
+            <p>表中的取舍取决于当前研究。如果数值精度本身影响实验结果，数组类型也应作为方法条件保留。</p>
             <p class="decision"><span>取舍依据</span> 对论证重要的概念加以解释或辨析，对当前问题作用有限的内容少花笔墨。</p>
           </div>
 
           <div class="case-step" id="case-outline"><div class="step-heading"><span>03</span><h3>由任务结构确定叙述顺序</h3></div>
-            <p>内容基本确定之后，可以把保留下来的说明交给 AI，请它提出分段和顺序，也可以先给出作者自己的安排，再让模型检查。讨论需要具体到每段写什么、读者此前已经知道什么，以及下一段为什么接在这里。已有方案若使某个概念出现过晚，或把相互依赖的信息分散开来，就可以据此调整。</p>
-            <p>在这个小节中，若直接介绍各类输入，读者可能尚不清楚这些信号在任务中何时发挥作用。因此，这里先交代刺激呈现、保持和回忆的时间关系，再用两段解释输入信号，最后说明目标输出。后面的信号定义便可以沿用第一段建立的时间框架。</p>
+            <p>内容基本确定后，把保留下来的说明交给 AI，请它提出分段和顺序；也可以先给出自己的安排，让模型检查。讨论要具体到每段写什么、读者此前已经知道什么、下一段为什么接在这里。若某个概念出现过晚，或相互依赖的信息被拆散，就据此调整。</p>
+            <p>在这个小节中，如果直接介绍各类输入，读者还不清楚这些信号在任务中何时起作用。因此先交代刺激呈现、保持和回忆的时间关系，再用两段解释输入信号，最后说明目标输出。后面的信号定义都可以沿用第一段建立的时间框架。</p>
             <div class="outline-list"><div><span>第 1 段</span><strong>试次怎样推进</strong><p>介绍刺激依次呈现、随后保持与回忆的过程，建立时间框架。</p></div><div><span>第 2 段</span><strong>刺激怎样进入模型</strong><p>定义群体编码及其关键参数，说明项目内容怎样表示。</p></div><div><span>第 3 段</span><strong>输入还包含哪些条件</strong><p>说明 fixation 的阶段变化，以及训练噪声怎样加入。</p></div><div><span>第 4 段</span><strong>模型要输出什么</strong><p>说明类别输出和 fixation 输出，连接监督目标。</p></div></div>
-            <p>fixation、噪声和刺激编码共同构成“输入信号”的说明。如果 AI 将它们各列成一节，可以考虑合并，使读者在相邻段落中理解各类输入的关系，避免小节过多而打断叙述。</p>
+            <p>fixation、噪声和刺激编码共同构成“输入信号”。如果 AI 把它们各列一节，可以考虑合并，让读者在相邻段落中看到各类输入的关系，也避免小节过多打断叙述。</p>
             <details class="prompt-inline"><summary>展开这一步的指令 <span class="expand-icon" aria-hidden="true">＋</span></summary><div class="details-body"><p class="prompt-content" id="prompt-outline">根据已经保留的输入编码、试次说明和输入输出图，为附录提出分段与顺序。如果我已提供方案，先检查其中的安排，再建议调整。每段说明要回答的问题、所需前提，以及与下一段的关系。读者熟悉 RNN，但不了解本任务。先讨论结构，不生成完整草稿。</p><button class="copy-button" data-copy="prompt-outline" hidden>复制指令</button></div></details>
           </div>
 
           <div class="case-step" id="case-draft"><div class="step-heading"><span>04</span><h3>按确定的逻辑生成完整草稿</h3></div>
-            <p>内容与顺序明确到可以试写的程度，就可以让 AI 按方案生成整版附录。此前的方法说明会在这一步重新组织：有些内容需要合并，有些要放到另一段，段落之间还需建立联系。完整草稿使作者能够连续阅读，并判断提纲中的安排是否真正成立。</p>
-            <p>这里用一个完整的输入输出小节展示这一阶段。草稿先交代试次过程，再描述输入信号，最后说明输出目标。前面保留的编码定义由此进入一段连续的方法介绍。</p>
+            <p>内容与顺序明确到可以试写时，让 AI 按方案生成整版附录。此前的方法说明会在这一步重新组织：有的内容合并，有的移到另一段，段落之间还要建立联系。有了完整草稿，作者才能连续阅读，判断提纲中的安排是否真的成立。</p>
+            <p>下面的输入输出小节先交代试次过程，再描述输入信号，最后说明输出目标，前面保留的编码定义由此进入一段连续的方法介绍。</p>
             <div class="final-excerpt"><p class="panel-label">输入与输出小节 · 教学重构</p><p class="english-sample" lang="en">On each trial, three distinct stimuli were drawn from six possible identities and presented sequentially. A maintenance period followed the final stimulus, after which the network was required to report the stimuli in their presentation order.</p><p class="english-sample" lang="en">Each of the six stimulus identities was encoded as a Gaussian population-code bump over 24 equally spaced channels on a circular feature space. Stimulus centers were equally spaced on the same circle. The bump had an amplitude of 4 and a standard deviation of √2; angular distances were wrapped to [−π, π).</p><p class="english-sample" lang="en">An additional fixation channel remained active through encoding and maintenance and was turned off at the start of retrieval. During training, independent Gaussian noise with a standard deviation of 0.01 was added to all input channels at each timestep.</p><p class="english-sample" lang="en">The network produced six item outputs and one fixation output. During retrieval, the item targets were one-hot vectors specifying the memorized sequence in its presentation order; they were zero at other times. The fixation target followed the fixation input throughout the trial.</p></div>
-            <p>小节中的 one-hot 目标表示：待回忆项目对应的类别通道为 1，其余类别通道为 0。读者可以据此理解输入项目与输出要求的关系。通读时还需要继续检查，哪些解释应当补上，哪些内容已经重复，以及从试次过程转入信号定义是否自然。</p>
+            <p>其中的 one-hot 目标是指：待回忆项目对应的类别通道为 1，其余类别通道为 0。通读时还要继续检查哪些解释该补、哪些内容重复，以及从试次过程转入信号定义是否自然。</p>
           </div>
 
           <div class="case-step" id="case-edit"><div class="step-heading"><span>05</span><h3>多角度审查，再回到草稿修改</h3></div>
-            <p>完整草稿形成之后，可以开启不同会话，从几个角度同时审读。各会话围绕同一版稿件提出意见，作者再比较这些意见并集中修改。也可以让主智能体分派几个边界清楚的检查，再汇总子智能体的结果。两种方式都需要交代各自的材料与任务，<a href="astra.html#reviews">协作原则</a>进一步说明它们的区别。这样的安排便于看清不同判断的依据，也使起草时已经习惯的表达有机会重新接受质疑。</p>
+            <p>完整草稿形成之后，可以让几个会话从不同角度审读同一版稿件，作者再比较意见、集中修改；也可以由主智能体分派几项边界清楚的检查，再汇总子智能体的结果（两种方式的区别见<a href="astra.html#reviews">与 Astra 协作</a>）。无论采用哪种，都先交代清楚各自拿到的材料与检查范围，让起草时已经看惯的表达重新接受审视。</p>
             <div class="review-lenses"><div><span>A / 读者</span><h4>能否跟上叙述</h4><p>只读草稿和图注，复述每段说明了什么，检查概念是否及时交代、段落顺序是否连贯。</p></div><div><span>B / 内容</span><h4>方法与条件是否准确</h4><p>对照代码、任务说明及相关结果，检查参数含义、信号变化和方法条件是否写对。</p></div><div><span>C / 表达</span><h4>哪些地方值得删改</h4><p>找出重复、含混或过渡突兀的位置，提出改法，并说明会保留或删去什么。</p></div></div>
-            <p>审查意见汇集之后，需要判断哪些问题确实存在，以及修改会影响多大范围。重复介绍同一信号，可以合并或删减；定义出现太晚，可以调整顺序；一段话始终说不清楚，则可能需要回到内容和逻辑重新讨论。几个会话提出相近意见时，可以优先复核相应位置，是否采用仍取决于原稿与材料。</p>
-            <p>对上面的草稿，过渡可以沿着信号之间的关系继续检查：刺激编码说明项目内容，fixation 标记回忆何时开始，二者共同构成输入；输出段落随后说明模型应当如何响应。若改写把这些说明拆成互不关联的小节，就需要重新考虑分段。改善过渡时，应当让这些关系在文字中显现。</p>
-            <p>删减也需要核对被删内容的作用。例如，“during training”“all input channels”“at each timestep”分别限定了噪声出现的阶段、作用的通道与加入的频率。某版压缩若删去了这些含义，就需要保留条件后再尝试改写。内容本身有误时，应当据材料修正；仅有措辞偏好时，则可以比较改写是否带来实际收益。</p>
-            <p>完成一轮修改后，再以更新后的稿件检查原有问题是否解决，以及改动是否引出新的重复或断裂。下一轮可以集中在仍有困难的位置。随着内容和结构稳定，修改范围通常会缩小，直至剩余意见主要是难以说明收益的表达偏好。</p>
+            <p>意见汇集之后，先判断问题是否确实存在、修改会影响多大范围。同一信号重复介绍，可以合并；定义出现太晚，可以调整顺序；一段话始终说不清楚，则可能要回到内容和逻辑重新讨论。几个会话意见相近时，优先复核相应位置，但是否采用仍取决于原稿与材料。</p>
+            <p>以上面的草稿为例，过渡可以沿着信号之间的关系检查：刺激编码说明项目内容，fixation 标记回忆何时开始，二者共同构成输入；输出段落随后说明模型应当怎样响应。改写若把这些说明拆成互不相关的小节，就要重新考虑分段。</p>
+            <p>删减也要核对被删内容的作用。例如，“during training”“all input channels”“at each timestep”分别限定了噪声出现的阶段、作用的通道和加入的频率。某版压缩若丢了这些含义，就保留条件后再试。内容本身有误时，依据材料修正；只是措辞偏好时，看改写是否带来实际收益。</p>
+            <p>一轮修改完成后，用更新后的稿件检查原有问题是否解决、改动是否引出新的重复或断裂，下一轮集中在仍有困难的位置。随着内容和结构稳定，修改范围会逐渐缩小，直到剩下的意见主要是说不清收益的表达偏好。</p>
             <details class="prompt-inline"><summary>要求审查意见说明依据 <span class="expand-icon" aria-hidden="true">＋</span></summary><div class="details-body"><p class="prompt-content" id="prompt-review">从指定视角审查这份稿件。每条意见给出位置、原文的问题、判断依据、最小修改及可能损失的信息。区分事实或论证问题与可选的表达调整。不要为了凑数量提意见；已经合适的地方可以建议不改。先给意见，不直接改稿。</p><button class="copy-button" data-copy="prompt-review" hidden>复制指令</button></div></details>
           </div>
 
           <div class="case-step" id="case-layout"><div class="step-heading"><span>06</span><h3>内容稳定后，集中处理排版</h3></div>
-            <p>大段删减与重组基本完成之后，便可以集中调整版面。此时再安排图表位置、公式换行和段落间距，较少受到后续文字大幅变化的影响。AI 可以协助执行这些调整，作者则需要阅读实际呈现的页面，检查图、图注与正文能否相互配合。</p>
-            <p>方法说明中的公式明确编码方式，输入输出图呈现试次过程，文字与图注解释信号的作用及图中作出的简化。例如，真实稿件的图注明确指出示意输入省略了训练噪声，读者因而可以区分图中曲线与训练时的实际输入。排版时也需要检查符号定义、交叉引用，以及图文之间是否存在多余重复。</p>
+            <p>大段删减与重组基本完成后，再集中调整版面。这时安排图表位置、公式换行和段落间距，较少受到后续文字变动的影响。AI 可以协助执行这些调整，作者则要阅读实际呈现的页面，检查图、图注与正文能否相互配合。</p>
+            <p>在这一节里，公式明确编码方式，输入输出图呈现试次过程，文字与图注解释信号的作用以及图中作出的简化。例如，真实稿件的图注特意说明示意输入省略了训练噪声，读者因此能区分图中曲线与训练时的实际输入。排版时还要检查符号定义、交叉引用，以及图文之间有没有多余的重复。</p>
             <div class="finish-list"><div><span>内容</span><p>需要说明的方法和条件已经交代，已确认的事实与论证问题处理完毕。</p></div><div><span>表达</span><p>段落能够连续阅读，删减没有意外改变含义，新增解释也没有形成重复。</p></div><div><span>版面</span><p>图、公式与文字配合清楚，符号和交叉引用可用，页面没有阅读障碍。</p></div></div>
-            <p>如果实际阅读又暴露出内容或衔接问题，仍可回到相应位置修改。附录已有可用的结构与内容之后，正文写作也可以继续推进；涉及两者共同编号、引用和图表的细节，再随全文一并检查。</p>
+            <p>如果实际阅读又暴露出内容或衔接问题，就回到相应位置修改。附录有了可用的结构与内容，正文写作就可以推进；两者共用的编号、引用和图表，随全文一并检查。</p>
             <a class="source-note" href="#source-cases">材料位置：training_and_params.tex 的 Input Signals、Target Outputs 与输入输出图注 ↗</a>
           </div>
         </section>
 <section class="article-section" id="main-text" aria-labelledby="main-title">
-          <h2 id="main-title">进入正文时，哪些判断需要调整</h2>
-          <p class="section-lead">附录已有可用的内容之后，正文可以沿用生成、讨论、起草与审查的过程。需要进一步明确的是，研究回答了什么，各项结果怎样共同支持这一回答。已有方法说明会为这些讨论提供依据，模型介绍的详略与结果的排列也要随之重新安排。</p>
-          <p>这一阶段可以先与 AI 讨论几种可能的研究问题和主线，比较它们分别能够组织哪些发现，又需要什么证据。作者已有方案时，也可以据此检验和调整。某种安排若使论述更连贯，却依赖尚未获得的结果，就需要收窄回答或补充研究。主线逐渐明确之后，再确定各节与段落的功能，生成正文草稿，并按前面的方式继续审查。</p>
+          <h2 id="main-title">进入正文后的调整</h2>
+          <p class="section-lead">附录成形之后，正文沿用生成、讨论、起草与审查的过程。不同的是，这里要先想清楚研究究竟回答了什么、各项结果怎样共同支持这一回答；模型介绍的详略和结果的排列，也随之重新安排。</p>
+          <p>这一阶段可以先与 AI 讨论几种可能的研究问题和主线，比较它们各自能组织哪些发现、需要什么证据；作者已有方案时，也拿来一并检验。某种安排更连贯，却依赖尚未获得的结果，就收窄回答或补充研究。主线明确后，再确定各节与段落的功能，生成正文草稿，按前面的方式审查。</p>
           <h3>结果之间的关系与正文的主线</h3>
           <div class="review-quote"><span class="small-label">来自真实审稿反馈</span><p>审稿人指出，结果虽然丰富，却缺少引导读者的贯穿主题；理解结果需要的概念和分析方法，也应当提前介绍。</p><a class="source-note" href="#source-rebuttal">schema-nips2026/ref.md · 审稿意见摘意 ↗</a></div>
-          <p>回应这一意见，需要围绕“模型怎样记住内容与次序，并在需要时读出”来组织结果。可以让 AI 先按表示形成、信息存入、保持与读出等问题整理材料，再检查每部分的作用及其与前后的联系。以下提纲据此组织稿件中的分析。</p>
+          <p>回应这条意见，核心是围绕“模型怎样记住内容与次序，并在需要时读出”重排结果。可以先让 AI 按表示形成、信息存入、保持与读出等问题梳理材料，再核对每部分的作用及前后衔接。下面的提纲据此组织稿件中的分析。</p>
           <p>提纲中涉及两个概念：“次序子空间”（rank subspace）指模型活动中承载某一序号项目信息的低维空间；“对齐”（alignment）描述这些空间与输入或输出权重空间在几何方向上的接近程度。</p>
           <ol class="argument-flow"><li><span class="flow-dot">1</span><div><h4>是否形成了区分次序与内容的表示？</h4><p>展示保持阶段中，三个序号的项目信息分别如何分布在次序子空间里。</p></div></li><li><span class="flow-dot">2</span><div><h4>新项目怎样进入对应的次序表示？</h4><p>比较输入到来时各子空间与输入权重空间的对齐，再用干预检验其作用。</p></div></li><li><span class="flow-dot">3</span><div><h4>输入继续到来时，已有信息怎样保持？</h4><p>追踪先前项目的表示如何变化，以及在保持期如何稳定下来。</p></div></li><li><span class="flow-dot">4</span><div><h4>保存的信息怎样按顺序读出？</h4><p>检查回忆时，不同序号的表示如何依次与输出权重空间对齐。</p></div></li><li><span class="flow-dot">5</span><div><h4>这种组织能在多大范围内复用？</h4><p>检验未见过的项目组合、较短序列，以及需要额外训练的较长序列。</p></div></li></ol>
           <div class="transition-example"><p class="panel-label">从保持期分析到编码分析 · 教学示范</p><p>保持期的分离表示说明不同次序的项目能够共存，但还没有解释新项目如何进入对应的表示空间。接下来，我们考察编码阶段的次序子空间与输入权重空间之间的关系。</p></div>
-          <p>这段过渡先界定已有分析的解释范围，再由尚未回答的问题引出下一项分析。它也提供了检查提纲的依据：后面的分析是否确实补上了前面留下的问题。</p>
+          <p>这段过渡先界定已有分析能解释什么，再由尚未回答的问题引出下一项分析。它也给了检查提纲的依据：后面的分析是否确实补上了前面留下的问题。</p>
 
           <h3 id="review-integration">把审稿补充融入原有论证</h3>
-          <p>主线确定之后，回应审稿意见带来的新内容还需要找到合适的位置。对于一项质疑，作者与 AI 可以先判断：现有材料是否已经能够回答，稿件是否缺少必要说明，还是需要补充分析或收窄结论。确定回应依据之后，再考虑哪些信息需要进入正文，以及它们与原有结果有什么关系。</p>
-          <p>在这篇稿件的修订中，一项问题涉及输入形式对表示几何的影响。输入输出控制比较了不同编码方式，需要分别回答：次序之间是否仍然分离，各次序内部的项目几何又发生了什么变化。这两个问题对应不同结论；次序分离得以保留，并不意味着全部几何特征都与输入形式无关。</p>
+          <p>主线确定之后，回应审稿意见带来的新内容还得找到合适的位置。面对一项质疑，作者与 AI 可以先判断：现有材料能否回答，稿件是否缺少必要说明，还是需要补充分析或收窄结论。回应的依据确定后，再考虑哪些信息进入正文、它们与原有结果是什么关系。</p>
+          <p>这篇稿件修订时，有一项质疑指向输入形式对表示几何的影响。输入输出控制比较了不同编码方式，涉及两个层面的问题：次序之间是否仍然分离，各次序内部的项目几何又发生了什么变化。二者对应不同的结论——次序分离得以保留，并不意味着所有几何特征都与输入形式无关。</p>
           <aside class="prompt-example" aria-labelledby="control-prompt-title"><p class="example-label" id="control-prompt-title">真实修改指令 · 节选</p><blockquote><p>此外有一个顾虑是，我们现在是否有因为加入了过多 control 而弱化了主线的问题？</p></blockquote></aside>
-          <p>提出这一问题时，正文已经加入了多种控制的具体结果。后续修改把其中逐项介绍编码方式与表现的文字压缩为下面这句概括，并保留指向附录与补图的引用：</p>
+          <p>提出这个问题时，正文已经加入了多种控制的具体结果。后续修改把逐项介绍编码方式与表现的文字压缩成下面一句概括，并保留指向附录与补图的引用：</p>
           <div class="transition-example"><p class="panel-label">当时改稿的表述 · 真实节选</p><p class="english-sample" lang="en">Across alternative input and output codes, rank separation persisted, whereas item-level geometry and the precise degree of orthogonality depended on the interface representation.</p></div>
           <p class="small-print">为便于阅读，节选省略了句末的附录与图号引用。</p>
-          <p>这句概括同时保留了稳定的现象与发生变化的部分：在所比较的编码中仍可观察到次序分离，但项目几何与正交程度依赖编码方式。具体条件由附录展开。正文因此能够用这组控制限定主要发现，而不必在这里逐一讲述每个实验。其他新增结果也需要检查相同的问题：它回答了主线中的哪项疑问，读者在此处需要知道多少，以及哪些条件必须与结论一起保留。</p>
+          <p>这句概括同时保留了稳定的部分与变化的部分：所比较的编码中都能观察到次序分离，但项目几何与正交程度依赖编码方式，具体条件由附录展开。正文因此能用这组控制限定主要发现，又不必逐一讲述每个实验。其他新增结果也可以用同样的问题检查：它回答了主线中的哪项疑问，读者在此处需要知道多少，哪些条件必须与结论一起保留。</p>
           <a class="source-note" href="#source-revisions">材料位置：输入输出控制的历史指令与 main.tex 修订 ↗</a>
 
           <h3>按主线决定方法详略</h3>
@@ -130,12 +128,12 @@
           <p class="decision"><span>取舍依据</span> 群体编码帮助读者理解模型接受什么输入，留在正文；位置符号与具体公式放在附录，供需要方法细节的读者查阅。</p>
 
           <h3>从问题与结果到具体段落</h3>
-          <p>提纲最后一项涉及模型在新序列长度上的表现。起草这一段，需要同时交代所测试的长度和是否接受额外训练。</p>
+          <p>提纲最后一项涉及模型在新序列长度上的表现。起草这一段时，所测试的长度和是否接受额外训练都要交代清楚。</p>
           <div class="transition-example"><p class="panel-label">结果段落 · 根据真实稿件重构</p><p>我们进一步检验了模型能否迁移到训练时未见的序列长度。在长度 3 序列上训练的模型，无需额外训练便能在长度 1、2 上实现接近完美的回忆。对于长度 4，长度 3 预训练加快了学习，但模型仍需接受额外训练。</p></div>
-          <p>无需额外训练的迁移通常称为零样本迁移，适用于这里的较短序列结果。较长序列仍需额外训练，因此两类表现应分别说明。</p>
-          <p>讨论部分还需区分学习收益与机制解释。学习加快说明先前训练有助于后续学习；若进一步推论原有的表示结构得到了保留，就需要相应的几何分析来支持。摘要可以压缩结果的表述，但仍需保留两种迁移条件的区别。</p>
+          <p>无需额外训练的迁移通常称为零样本迁移，这里只适用于较短序列；较长序列仍需额外训练，两类表现应分别说明。</p>
+          <p>讨论部分还要区分学习收益与机制解释。学习加快说明先前训练有助于后续学习；若进一步推论原有的表示结构得到保留，就需要相应的几何分析支持。摘要可以压缩结果的表述，但两种迁移条件的区别仍应保留。</p>
           <h3 id="review">在一次改写中决定取舍</h3>
-          <p>正文草稿同样可以交给几个会话分别审读，再比较意见并修改。以下用前面的迁移结果演示一次具体判断：压缩后的句子是否仍然保留了两种迁移条件。这里需要把修改建议放回结果中核对，才能决定怎样处理。</p>
+          <p>正文草稿同样可以交给几个会话分别审读。下面用前面的迁移结果演示一次具体判断：压缩后的句子是否还保留了两种迁移条件。</p>
 
           <div class="decision-lab">
             <div class="lab-heading"><span class="tiny-tag">审查练习</span><p>你会接受这条修改吗？</p></div>
@@ -146,29 +144,29 @@
             <div id="decision-feedback" class="decision-feedback" role="status" hidden></div>
             <details class="verdict"><summary>查看判断与可接受的短版 <span class="expand-icon" aria-hidden="true">＋</span></summary><div class="details-body"><p><strong>这版改写应当放弃。</strong>它将长度 4 的结果也归入零样本迁移，与该条件下仍需额外训练的事实不符。不过，压缩重复表述的方向仍可保留，例如改为：</p><p class="verdict-text">“模型可零样本迁移到所测试的较短序列，并在额外训练时更快学会长度 4 的任务。”</p><p>短版省去了重复的训练背景，保留了两类结果及其条件，因而没有改变科学含义。若原主张本身有误，则应根据证据纠正。</p></div></details>
           </div>
-          <p>如果审查指出读者在看到结果时尚不清楚“对齐”的含义，则可以接受建议，将定义放到分析之前。这项修改补上了理解结果所需的前提。</p>
-          <p>审查明确了“所测试的长度”与“是否额外训练”需要保留，润色便可以在这些约束下继续。此时可以检查空泛的强调与重复解释，例如删去下面段落的评价性开头。</p>
+          <p>如果审查指出读者看到结果时还不清楚“对齐”的含义，则可以接受建议，把定义移到分析之前：这项修改补上了理解结果所需的前提。</p>
+          <p>审查明确了“所测试的长度”和“是否额外训练”必须保留，润色就在这些约束下继续，例如删去下面这句的评价性开头。</p>
           <div class="line-edit"><p><span>删去空泛开头</span><del>值得注意的是，这一重要结果进一步表明，</del>在所测试的长度 1、2 条件下，模型无需额外训练即可完成回忆。</p><p class="small-print">教学示范。删去强调语，保留“所测试的长度 1、2”和“无需额外训练”，因为它们限定结论。</p></div>
-          <p>其他句子仍需结合用途判断。术语的重复有时有助于保持概念一致，长句也可能承载必要的因果与条件关系；删改时要检查这些联系是否完整。若发现解释被压缩得过多，还需要回看先前版本，找出丢失的内容。</p>
+          <p>其他句子同样结合用途取舍：术语重复有助于稳住概念，长句有时正承载着拆不开的因果与条件关系。若发现某处解释压缩过度，就翻回先前版本找回被删掉的前提。</p>
 
           <h3 id="revision-history">恢复必要内容，再继续局部修改</h3>
-          <p>在另一轮真实修订中，作者将输入权重的干预结果加入正文，却发现前文被删减得过多，新旧段落也未能自然衔接。作者先恢复前文，再要求 AI 重新考虑两部分的关系：</p>
+          <p>在另一轮真实修订中，作者把输入权重的干预结果加入正文，却发现前文删减过多，新旧段落也接不上。作者先恢复了前文，再请 AI 重新考虑两部分的关系：</p>
           <aside class="prompt-example" aria-labelledby="restore-prompt-title"><p class="example-label" id="restore-prompt-title">真实修改指令 · 节选</p><blockquote><p>和前文的衔接不顺畅，并且前文相较于之前的版本缩减了太多。我目前先恢复了前文原本的版本，现在需要你综合考虑新的这段和原本的内容如何更好地融合在一起</p></blockquote></aside>
-          <p>后续整合保留了前文对各阶段对齐现象、角度与贡献度的解释，再由“这种对齐是否参与编码”引出局部旋转干预。权重替换与刺激屏蔽等补充控制集中报告，避免在旧段和新段中重复出现。这样，原有观察为干预提供了问题，干预结果又为前面的解释增加了检验。</p>
-          <p>恢复内容时，还需要重新检查旧表述是否准确。这一轮同时纠正了把输入权重写成自行转向的说法：无干预时，训练后的输入权重保持固定，随阶段变化的是活动子空间。恢复必要解释与修正原有错误，可以在同一次修改中完成。</p>
+          <p>随后的整合保留了前文对各阶段对齐现象、角度和贡献度的解释，再由“这种对齐是否参与编码”引出局部旋转干预。权重替换、刺激屏蔽等补充控制集中报告，避免在新旧段落中重复。这样，原有观察为干预提出了问题，干预结果又检验了前面的解释。</p>
+          <p>恢复内容时，旧表述是否准确也要重新检查。这一轮同时纠正了把输入权重写成自行转向的说法：无干预时，训练后的输入权重保持固定，随阶段变化的是活动子空间。恢复必要的解释和修正原有的错误，可以在同一次修改中完成。</p>
           <p>段落关系得到调整之后，作者继续指出“input drive”不符合全文已有术语，随后又追问“这段主要问题是有点太长了，你如何考虑？”。修改由此转向更局部的任务：明确干预对象，压缩可在附录查阅的细节，并保留主要行为结果以及其他次序也受影响的限定。对“旋转输入”的潜在歧义，后续又改为明确描述输入权重列空间的临时旋转，并同步附录定义。</p>
-          <p>这些反馈逐步改变了修改的范围：先找回解释，再重建段落关系，随后调整术语与详略。作者不需要在第一条指令中预先列出所有改法；每次阅读改稿之后，都可以根据尚未解决的具体问题继续推进。比较版本时，应当检查哪些内容值得保留、哪些需要恢复，以及哪些新解释仍然可以压缩。</p>
+          <p>这些反馈逐步改变了修改的范围：先找回解释，再重建段落关系，然后调整术语与详略。作者不必在第一条指令里列出所有改法；每读一次改稿，都可以根据尚未解决的具体问题继续推进，并比较哪些内容值得保留、哪些需要恢复、哪些新解释还能压缩。</p>
           <a class="source-note" href="#source-revisions">材料位置：输入权重干预的整合、术语与篇幅修改记录 ↗</a>
 
           <h3 id="full-review">把局部修改放回全文检查</h3>
-          <p>几轮局部修改完成之后，需要重新通读全文。标题、摘要和引言应当指向同一个研究问题，结果提供相应证据，讨论再解释这些发现的意义与范围。若正文已经区分较短序列的零样本迁移与较长序列的额外训练，摘要压缩时仍需保留这一区别；若标题强调机制，正文也需要有与这一表述相称的分析。</p>
-          <p>方法、图注与附录之间则要核对同一对象的定义。输入权重与活动子空间分别发生了什么变化，贡献度怎样计算，误差表示什么，以及比较采用哪些训练条件，都需要前后一致，并与相应代码和结果对应。发现不一致后，要先判断是哪一处写错、是否影响已有分析，再确定修正范围。</p>
-          <p>新增或重组的段落还需要重新核对引用。历史修改中，作者曾要求为重写的引言和相关工作补回原有文献，并将任务限定为“只补充引用”。这类检查需要确认文献实际支持紧邻的判断，引用位置也应随论述关系调整；已有文字已经合适时，可以只完成当前缺少的部分。</p>
-          <p>最后再阅读实际排版，检查图表大小、图注、符号和交叉引用是否便于理解。若发现新的内容问题，回到相应段落处理；当关键问题已经解决，剩余建议主要是难以说明收益的措辞变化时，这一轮修改便可以结束。</p>
+          <p>几轮局部修改之后，重新通读全文。标题、摘要与引言应指向同一个研究问题，结果提供相应证据，讨论阐明发现的意义与边界。正文既已区分较短序列的零样本迁移与较长序列的额外训练，摘要浓缩时就不能抹掉这一差别；标题若强调机制，正文也须拿出相称的机制分析。</p>
+          <p>方法、图注与附录之间则核对同一对象的定义是否前后一致：输入权重与活动子空间各自如何变化、贡献度怎样计算、误差代表什么、对比实验采用了哪些训练条件，并逐一与代码和结果对齐。发现出入时，先查明哪一处失准、是否波及已有结论，再划定修改范围。</p>
+          <p>新增或重组的段落还需复核文献引用。历史修改中，作者曾请模型为重写后的引言与相关工作补回原有引文，并把任务明确锁在“只补充引用”。这类核查重点确认文献确实支撑紧邻的判断，引用位置也随论证重心同步挪动；正文已经妥帖时，只补缺失的一环即可。</p>
+          <p>最后阅读实际排版，检查图表大小、图注、符号和交叉引用是否便于理解。发现新的内容问题就回到相应段落；关键问题都已解决、剩下的主要是说不清收益的措辞变化时，这一轮修改便可以结束。</p>
         </section>
 <section class="article-section" id="prompts" aria-labelledby="prompts-title">
           <div class="section-heading-row"><h2 id="prompts-title">四条起始指令</h2><a class="download-link" href="prompts.txt" download>下载 TXT <span aria-hidden="true">↓</span></a></div>
-          <p>下面几条指令分别用于前期生成说明、讨论结构、形成正文主线和比较改写。它们交代了这几项任务的目标、判断依据和完成范围；使用时，可以按当前需要调整。若已有原文和充分的讨论背景，也可以从<a href="astra.html#goals">一句简短要求</a>开始。反复适用的合作原则则可以另行<a href="astra.html#instructions">保存为长期约定</a>。</p>
+          <p>下面四条指令分别用于生成方法说明、讨论结构、形成正文主线和比较改写。每条都交代了任务的目标、判断依据和完成范围，使用时按当前需要调整。如果原文和讨论背景已经充分，也可以从<a href="astra.html#goals">一句简短要求</a>开始；反复适用的合作原则，则可以另行<a href="astra.html#instructions">保存为长期约定</a>。</p>
           <div class="prompt-card"><div class="prompt-card-header"><span class="prompt-number">01</span><h3>生成参数与方法说明</h3><button class="copy-button" data-copy="prompt-appendix" hidden>复制</button></div><p class="prompt-use">输入：相关代码、任务说明、结果与图表。检查：描述是否准确，哪些信息值得保留。</p><p class="prompt-content" id="prompt-appendix">请根据［代码、任务说明、结果与图表］，为［读者］写出［附录范围］涉及的参数和方法说明。重点说明方法怎样工作，沿用已有术语，核对参数含义与数值，保留影响理解和复现的条件。材料不清楚的地方单独指出。本轮先生成可供阅读和取舍的说明，随后再讨论分段与顺序。</p></div>
           <div class="prompt-card"><div class="prompt-card-header"><span class="prompt-number">02</span><h3>共同设计分段与顺序</h3><button class="copy-button" data-copy="prompt-structure" hidden>复制</button></div><p class="prompt-use">输入：已保留的内容、写作目的和已有方案。检查：每段的任务及前后联系是否清楚。</p><p class="prompt-content" id="prompt-structure">根据［已保留的内容］，为［附录或正文］提出分段与顺序。如果我已提供方案，先检查其中的安排，再建议调整。说明每段要回答的问题、需要的前提，以及与下一段的关系；篇幅按各段任务分配。先讨论逻辑，暂不生成完整草稿。</p></div>
           <div class="prompt-card"><div class="prompt-card-header"><span class="prompt-number">03</span><h3>形成正文的问题与主线</h3><button class="copy-button" data-copy="prompt-main" hidden>复制</button></div><p class="prompt-use">输入：已有结果、方法与文献背景。检查：问题、回答和证据是否对应。</p><p class="prompt-content" id="prompt-main">根据［已有结果、方法与文献背景］，提出几种正文可以围绕的问题及其主要回答。如果我已有主线，将它一并比较。说明各方案能够组织哪些发现、依赖哪些前提，以及现有证据支持到什么范围。根据这些差别建议取舍，再提出章节和段落的论证顺序。先讨论方案，不写完整正文。</p></div>
@@ -179,4 +177,4 @@
           <h2 id="sources-title">案例材料与版本</h2>
           <div class="source-entry" id="source-cases"><span class="source-index">01</span><div><h3>Schema 研究材料</h3><p>正文与附录来自 <code>schema-iclr2027</code>；审稿反馈来自 <code>schema-nips2026</code>。案例展示信息取舍及写作判断，不以版本先后证明写作质量，也不将本次教学重构归为历史模型输出。</p><details class="source-details"><summary>展开文件与版本定位 <span class="expand-icon" aria-hidden="true">＋</span></summary><div class="details-body"><ul><li>编码实现：<code>src/schema/data/recall/legacy.py</code>，<code>gaussian_item</code>；Schema 版本 <code>aee46281</code>。</li><li>附录：<code>appendix/training_and_params.tex</code>，Input Signals、Target Outputs、Training and Test Sets。</li><li>正文对照：<code>main-previous.tex</code> 与 <code>main.tex</code>，The Neural Circuit Model。</li><li>序列长度案例：<code>main.tex</code> 中长度泛化段落，约第 246 行；对应图标签 <code>fig:generalization</code> 与 <code>fig:training_loss_comparison</code>。ICLR 稿件版本 <code>c23d541</code>。</li><li id="source-rebuttal">审稿记录：<code>schema-nips2026/ref.md</code>，关于贯穿主题、概念定义及图表说明的意见，约第 310–326 行；版本 <code>4b87bfe</code>。此处为中文摘意。</li></ul><p class="small-print">上述文件名供拥有原材料的读者核查。网站只包含教学所需节选与重构示例，没有复制完整论文或审稿记录。</p></div></details></div></div>
           <div class="source-entry" id="source-revisions"><span class="source-index">02</span><div><h3>历史修改过程</h3><p>控制实验与段落恢复两段案例，依据保留的对话和稿件版本整理。标为“真实修改指令”的文字为作者原话节选；过程说明为本页归纳，未将分轮讨论改写成虚构对话。</p><details class="source-details"><summary>展开修改记录定位 <span class="expand-icon" aria-hidden="true">＋</span></summary><div class="details-body"><ul><li>控制实验与主线：2026 年 9 月 19 日关于“加入了过多 control”的讨论；<code>schema-iclr2027</code> 提交 <code>f718e52</code>，<code>main.tex</code> 的输入输出控制段落。</li><li>恢复与整合：2026 年 9 月 25 日关于前文恢复、输入权重干预、<code>input drive</code> 术语及篇幅的连续讨论。稿件版本 <code>c23d541</code> 的 <code>main.tex</code> 保留对齐分析与局部旋转干预；对应附录为 <code>supplementary_experiments.tex</code> 的输入权重旋转部分。</li><li>全文检查：2026 年 9 月关于摘要与正文对应、补充引文、公式定义及符号调整的多轮记录。这里只归纳检查对象，不将所有审查建议视为已采纳。</li></ul><p class="small-print">日期按北京时间标示；页面未包含完整对话日志。</p></div></details></div></div>
-        </section></article></div></main><footer class="site-footer wrap"><a href="index.html">← 返回主文</a><a href="#top">返回顶部 ↑</a></footer><div id="toast" class="toast" role="status" aria-live="polite" hidden></div></body></html>
+        </section></article></div></main><footer class="site-footer wrap"><a href="index.html">← 写作原则</a><a href="astra.html">与 Astra 协作 →</a><a href="#top">返回顶部 ↑</a></footer><div id="toast" class="toast" role="status" aria-live="polite" hidden></div></body></html>
