@@ -14,7 +14,7 @@
 | [写作案例](https://veritas-arch.github.io/iridium/case.html) | 从代码与结果到附录和正文，展示内容取舍、审稿补充、多轮修改与全文检查。 |
 | [与 Astra 协作](https://veritas-arch.github.io/iridium/astra.html) | 讨论任务目标、取舍原则、长期约定和不同视角的审查。 |
 
-页面提供目录进度、单页与三篇合订本 PDF 打印导出、稿件对照、指令复制与 TXT 下载。关闭 JavaScript 后仍可阅读正文和稿件版本。网站不调用模型 API，也不收集访客输入。
+页面提供目录进度、稿件对照、指令复制与 TXT 下载。关闭 JavaScript 后仍可阅读正文和稿件版本。网站不调用模型 API，也不收集访客输入。
 
 ## 本地预览
 
